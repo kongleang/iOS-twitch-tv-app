@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="myAlamoFireSwiftyJSONtable" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="48" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kec-Ij-O2j">
+                                <rect key="frame" x="0.0" y="20" width="414" height="684"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="myCell" rowHeight="48" id="Xkx-7E-bbo" userLabel="MyTableViewCell" customClass="MyTableViewCell" customModule="myAlamoFireSwiftyJSONtable" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="48"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Xkx-7E-bbo" id="uhC-iK-yQL">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="47"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="myNameText" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fxS-Fy-Hcx">
+                                                    <rect key="frame" x="15" y="0.0" width="89" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="myNameText" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gjU-sy-BP3" userLabel="myEmailText">
+                                                    <rect key="frame" x="317" y="19" width="89" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="myNameText" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="19A-gP-lV6" userLabel="myWebsiteText">
+                                                    <rect key="frame" x="15" y="19" width="89" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="myNameText" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GsN-aH-Ino" userLabel="myPhoneText">
+                                                    <rect key="frame" x="317" y="0.0" width="89" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="GsN-aH-Ino" firstAttribute="top" secondItem="uhC-iK-yQL" secondAttribute="topMargin" constant="-8" id="AYZ-wb-dq1"/>
+                                                <constraint firstItem="gjU-sy-BP3" firstAttribute="top" secondItem="GsN-aH-Ino" secondAttribute="bottom" constant="1" id="Ca4-Lf-NtS"/>
+                                                <constraint firstItem="19A-gP-lV6" firstAttribute="leading" secondItem="uhC-iK-yQL" secondAttribute="leadingMargin" constant="7" id="ITZ-71-izx"/>
+                                                <constraint firstItem="19A-gP-lV6" firstAttribute="top" secondItem="fxS-Fy-Hcx" secondAttribute="bottom" constant="1" id="ePV-OA-tnX"/>
+                                                <constraint firstItem="fxS-Fy-Hcx" firstAttribute="leading" secondItem="uhC-iK-yQL" secondAttribute="leadingMargin" constant="7" id="gec-Cm-Z3I"/>
+                                                <constraint firstItem="gjU-sy-BP3" firstAttribute="trailing" secondItem="uhC-iK-yQL" secondAttribute="trailingMargin" id="kqk-Ws-4lo"/>
+                                                <constraint firstItem="GsN-aH-Ino" firstAttribute="trailing" secondItem="uhC-iK-yQL" secondAttribute="trailingMargin" id="rBH-0Y-gGJ"/>
+                                                <constraint firstItem="fxS-Fy-Hcx" firstAttribute="top" secondItem="uhC-iK-yQL" secondAttribute="topMargin" constant="-8" id="tbe-dM-LIN"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="myEmailText" destination="gjU-sy-BP3" id="yc4-2d-edK"/>
+                                            <outlet property="myNameText" destination="fxS-Fy-Hcx" id="fhN-2y-CdH"/>
+                                            <outlet property="myPhoneText" destination="GsN-aH-Ino" id="Son-9v-OQ1"/>
+                                            <outlet property="myWebsiteText" destination="19A-gP-lV6" id="TKQ-rL-5kP"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="i9N-j9-LSm"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="iPJ-5F-Jo1"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="kec-Ij-O2j" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="4LW-Tz-9tb"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="kec-Ij-O2j" secondAttribute="trailing" constant="-20" id="IvF-C5-P6J"/>
+                            <constraint firstItem="kec-Ij-O2j" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="14" id="jQK-cX-6TD"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="kec-Ij-O2j" secondAttribute="bottom" constant="52" id="uNa-XO-ri2"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <connections>
+                        <outlet property="tableView" destination="kec-Ij-O2j" id="ov8-Bg-zTx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="259" y="351"/>
+        </scene>
+    </scenes>
+</document>

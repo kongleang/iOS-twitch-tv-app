@@ -1,0 +1,6 @@
+framework module Pods_myAlamoFireSwiftyJSONtable {
+  umbrella header "Pods-myAlamoFireSwiftyJSONtable-umbrella.h"
+
+  export *
+  module * { export * }
+}
