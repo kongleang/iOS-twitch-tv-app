@@ -18,9 +18,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="48" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kec-Ij-O2j">
-                                <rect key="frame" x="0.0" y="20" width="414" height="684"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="48" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kec-Ij-O2j">
+                                <rect key="frame" x="0.0" y="14" width="414" height="722"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="722" id="YGS-pk-u2E"/>
+                                    <constraint firstAttribute="width" constant="414" id="dfv-gI-Khp"/>
+                                </constraints>
+                                <color key="sectionIndexBackgroundColor" red="0.50196081400000003" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="myCell" rowHeight="48" id="Xkx-7E-bbo" userLabel="MyTableViewCell" customClass="MyTableViewCell" customModule="myAlamoFireSwiftyJSONtable" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="48"/>
@@ -29,32 +34,70 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="47"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SfN-lf-aEF" userLabel="myNameBtn">
-                                                    <rect key="frame" x="93" y="-6" width="84" height="30"/>
-                                                    <state key="normal" title="myNameBtn"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SfN-lf-aEF" userLabel="myNameBtn">
+                                                    <rect key="frame" x="8" y="0.0" width="187" height="18"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="187" id="4dd-zh-4ZA"/>
+                                                        <constraint firstAttribute="height" constant="18" id="gGJ-X6-wv2"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <state key="normal" title="myNameBtn">
+                                                        <color key="titleColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tU2-PA-mp5" userLabel="myEmailBtn">
-                                                    <rect key="frame" x="95" y="13" width="81" height="30"/>
-                                                    <state key="normal" title="myEmailBtn"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nFG-9B-Xt2" userLabel="myPhoneBtn">
+                                                    <rect key="frame" x="203" y="24" width="203" height="15"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="203" id="lk9-4C-oSe"/>
+                                                        <constraint firstAttribute="height" constant="15" id="xNr-bR-y6H"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <state key="normal" title="myPhoneBtn">
+                                                        <color key="titleColor" red="0.0" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
                                                     <connections>
-                                                        <action selector="createEmail:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7xf-yW-nag"/>
+                                                        <action selector="makeCall:" destination="Xkx-7E-bbo" eventType="touchUpInside" id="DhT-XN-gsS"/>
                                                     </connections>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="646-8i-R1S" userLabel="myWebsiteBtn">
-                                                    <rect key="frame" x="243" y="13" width="99" height="30"/>
-                                                    <state key="normal" title="myWebsiteBtn"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="646-8i-R1S" userLabel="myWebsiteBtn">
+                                                    <rect key="frame" x="8" y="24" width="187" height="16"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="187" id="Xf9-XN-A77"/>
+                                                        <constraint firstAttribute="height" constant="16" id="gDo-IT-VnH"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <state key="normal" title="myWebsiteBtn">
+                                                        <color key="titleColor" red="0.0" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
                                                     <connections>
-                                                        <action selector="gotoWebsite:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CdH-bX-oxE"/>
+                                                        <action selector="loadWebsite:" destination="Xkx-7E-bbo" eventType="touchUpInside" id="xZc-Ep-6yu"/>
                                                     </connections>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nFG-9B-Xt2" userLabel="myPhoneBtn">
-                                                    <rect key="frame" x="248" y="-6" width="88" height="30"/>
-                                                    <state key="normal" title="myPhoneBtn"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tU2-PA-mp5" userLabel="myEmailBtn">
+                                                    <rect key="frame" x="203" y="0.0" width="203" height="18"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="203" id="aS2-OI-KMY"/>
+                                                        <constraint firstAttribute="height" constant="18" id="vV4-qq-hbq"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <state key="normal" title="myEmailBtn">
+                                                        <color key="titleColor" red="0.0" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
                                                     <connections>
-                                                        <action selector="callPhoneNumber:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Pmq-V6-GQF"/>
+                                                        <action selector="createEmail:" destination="Xkx-7E-bbo" eventType="touchUpInside" id="f7g-m3-BCf"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="646-8i-R1S" firstAttribute="top" secondItem="SfN-lf-aEF" secondAttribute="bottom" constant="6" id="0XJ-Bc-Oxa"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="646-8i-R1S" secondAttribute="bottom" constant="-1" id="8za-FJ-fsy"/>
+                                                <constraint firstItem="tU2-PA-mp5" firstAttribute="trailing" secondItem="uhC-iK-yQL" secondAttribute="trailingMargin" id="FQU-7T-BjB"/>
+                                                <constraint firstItem="nFG-9B-Xt2" firstAttribute="leading" secondItem="646-8i-R1S" secondAttribute="trailing" constant="8" id="RlO-jX-v9F"/>
+                                                <constraint firstItem="nFG-9B-Xt2" firstAttribute="bottom" secondItem="uhC-iK-yQL" secondAttribute="bottomMargin" id="SEu-6v-fzZ"/>
+                                                <constraint firstItem="SfN-lf-aEF" firstAttribute="leading" secondItem="uhC-iK-yQL" secondAttribute="leadingMargin" id="U25-Ps-7x2"/>
+                                                <constraint firstItem="nFG-9B-Xt2" firstAttribute="trailing" secondItem="uhC-iK-yQL" secondAttribute="trailingMargin" id="Xq8-dD-A8o"/>
+                                                <constraint firstItem="nFG-9B-Xt2" firstAttribute="top" secondItem="tU2-PA-mp5" secondAttribute="bottom" constant="6" id="vJ4-Rc-quz"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="myEmailBtn" destination="tU2-PA-mp5" id="cjV-iC-92v"/>
@@ -72,10 +115,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="kec-Ij-O2j" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="4LW-Tz-9tb"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="kec-Ij-O2j" secondAttribute="trailing" constant="-20" id="IvF-C5-P6J"/>
-                            <constraint firstItem="kec-Ij-O2j" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="14" id="jQK-cX-6TD"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="kec-Ij-O2j" secondAttribute="bottom" constant="52" id="uNa-XO-ri2"/>
+                            <constraint firstItem="kec-Ij-O2j" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="14" id="O12-3K-NSt"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="kec-Ij-O2j" secondAttribute="trailing" constant="-20" id="iN2-Om-2Uh"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="kec-Ij-O2j" secondAttribute="bottom" id="jRQ-kP-gz3"/>
+                            <constraint firstItem="kec-Ij-O2j" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="xte-9o-42Q"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>

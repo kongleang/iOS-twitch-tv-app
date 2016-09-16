@@ -11,7 +11,7 @@ import Alamofire
 import SwiftyJSON
 import MessageUI
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, MyTableViewCellDelegate {
 		
 	@IBOutlet weak var tableView: UITableView!
 	
@@ -56,7 +56,7 @@ class ViewController: UIViewController {
 					let phone = arrayEntry["phone"].stringValue
 					let email = arrayEntry["email"].stringValue
 					let website = arrayEntry["website"].stringValue
-				
+
 					self.userDataArray.append(UserData(name: name, email: email, phone: phone, website: website))
 				}
 			
@@ -69,43 +69,6 @@ class ViewController: UIViewController {
 			
 					print("Failed to get a value from the response.")
 			}
-		}
-	}
-	
-	// MARK: - Actions
-	
-	@IBAction func callPhoneNumber(sender: UIButton) {
-		
-		for i in userDataArray {
-		
-			if let url = NSURL(string: i.phone) {
-				
-				let alertController = UIAlertController(title: "Place Call",
-														message: "Do you wish to call \(i.phone)?",
-														preferredStyle: .Alert)
-				
-				alertController.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
-				
-				let callAction = UIAlertAction(title: "Call", style: .Default) { action in
-					
-					UIApplication.sharedApplication().openURL(url)
-				}
-				
-				alertController.addAction(callAction)
-				
-				self.presentViewController(alertController, animated: true, completion: nil)
-				
-			} else {
-				print("Failed to convert phone number to NSURL")
-			}
-		}
-	}
-	
-	@IBAction func gotoWebsite(sender: UIButton) {
-		
-		if let url = NSURL(string: "https://guildsa.org") {
-			
-			UIApplication.sharedApplication().openURL(url)
 		}
 	}
 }
@@ -125,31 +88,71 @@ extension ViewController: UITableViewDataSource {
 		
 		let cell = tableView.dequeueReusableCellWithIdentifier("myCell", forIndexPath: indexPath) as! MyTableViewCell
 		
+		cell.delegate = self
+		
 		let row = indexPath.row
 		
-		cell.myNameBtn.setTitle(userDataArray[row].name, forState: [])
-		cell.myPhoneBtn.setTitle(userDataArray[row].phone, forState: [])
-		cell.myEmailBtn.setTitle(userDataArray[row].email, forState: [])
-		cell.myWebsiteBtn.setTitle(userDataArray[row].website, forState: [])
+		let fullUrl = userDataArray[row].website
+		
+		cell.websiteUrl = fullUrl
+		
+//		var shortUrl: String = ""
+//		
+//		// If the URL has "http://" or "https://" in it - remove it!
+//		if fullUrl.lowercaseString.rangeOfString("http://") != nil {
+//			shortUrl = fullUrl.stringByReplacingOccurrencesOfString("http://", withString: "")
+//		} else if fullUrl.lowercaseString.rangeOfString("https://") != nil {
+//			shortUrl = fullUrl.stringByReplacingOccurrencesOfString("https://", withString: "")
+//		}
+		
+		cell.myWebsiteBtn.setTitle(userDataArray[row].website, forState: .Normal)
+		cell.myPhoneBtn.setTitle(userDataArray[row].phone, forState: .Normal)
+		cell.myEmailBtn.setTitle(userDataArray[row].email, forState: .Normal)
+		cell.myNameBtn.setTitle(userDataArray[row].name, forState: .Normal)
+		
+		cell.emailAddress = userDataArray[row].email
+		
+//		cell.myNameBtn.setTitle(userDataArray[row].name, forState: [])
+//		cell.myPhoneBtn.setTitle(userDataArray[row].phone, forState: [])
+//		cell.myEmailBtn.setTitle(userDataArray[row].email, forState: [])
+//		cell.myWebsiteBtn.setTitle(userDataArray[row].website, forState: [])
 		
 		return cell
 	}
-
-}
-
-// MARK: - MFMailComposeViewControllerDelegate
-
-extension ViewController: MFMailComposeViewControllerDelegate {
 	
-	@IBAction func createEmail(sender: UIButton) {
+	// to give a warning if user is using a simulator
+	
+	func isSimulator() -> Bool {
+		#if (arch(i386) || arch(x86_64)) && os(iOS)
+			return true
+		#else
+			return false
+		#endif
+	}
+	
+	// Implemented from  MyTableViewCellDelegate
+	// If this gets called we know that a user has tapped on the email button on one of our cells.
+	func didTapEmail(email: String) {
+		
+		if isSimulator() {
+			
+			let alertController = UIAlertController(title: "Could Not Send Email",
+			                                        message: "You can not send an email from the simulator!",
+			                                        preferredStyle: .Alert)
+			
+			alertController.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+			self.presentViewController(alertController, animated: true, completion: nil)
+			
+			return
+		}
 		
 		if MFMailComposeViewController.canSendMail() {
 			
 			let mailComposerVC = MFMailComposeViewController()
 			mailComposerVC.mailComposeDelegate = self
-			mailComposerVC.setToRecipients(["mnetherwood@gmail.com"])
+			mailComposerVC.setToRecipients([email])
 			mailComposerVC.setSubject("My Subject...")
-			mailComposerVC.setMessageBody("Hello, I wanted to reach out to you about...", isHTML: false)
+			mailComposerVC.setMessageBody("Here's my email! Blah Blah Blah.", isHTML: false)
 			
 			self.presentViewController(mailComposerVC, animated: true, completion: nil)
 			
@@ -175,10 +178,58 @@ extension ViewController: MFMailComposeViewControllerDelegate {
 		}
 	}
 	
+	func didTapPhone(phone: String) {
+		
+		if isSimulator() {
+			
+			let alertController = UIAlertController(title: "Could Not Make Call",
+			                                        message: "You can not make a call from the simulator!",
+			                                        preferredStyle: .Alert)
+			
+			alertController.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+			self.presentViewController(alertController, animated: true, completion: nil)
+			
+			return
+		}
+		
+		for i in userDataArray {
+			
+			if let url = NSURL(string: i.phone) {
+				
+				let alertController = UIAlertController(title: "Place Call",
+				                                        message: "Do you wish to call \(i.phone)?",
+				                                        preferredStyle: .Alert)
+				
+				alertController.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+				
+				let callAction = UIAlertAction(title: "Call", style: .Default) { action in
+					
+					UIApplication.sharedApplication().openURL(url)
+				}
+				
+				alertController.addAction(callAction)
+				
+				self.presentViewController(alertController, animated: true, completion: nil)
+				
+			} else {
+				
+				print("Failed to convert phone number to NSURL")
+			}
+		}
+	}
+}
+
+// MARK: - MFMailComposeViewControllerDelegate
+
+extension ViewController: MFMailComposeViewControllerDelegate {
+	
 	// Implemented from MFMailComposeViewControllerDelegate...
 	func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
 		
 		controller.dismissViewControllerAnimated(true, completion: nil)
 	}
 }
+
+
+
 
