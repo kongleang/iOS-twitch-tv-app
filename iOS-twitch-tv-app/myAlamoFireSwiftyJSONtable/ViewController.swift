@@ -12,23 +12,23 @@ import SwiftyJSON
 
 class ViewController: UIViewController, UITableViewDataSource {
 		
-		@IBOutlet weak var tableView: UITableView!
-		
-		struct UserData {
-			
-			var name: String
-			var email: String
-			var phone: String
-			var website: String
-		}
-		
-		var userDataArray = [UserData]()
+	@IBOutlet weak var tableView: UITableView!
 	
-		override func viewDidLoad() {
+	struct UserData {
+		
+		var name: String
+		var email: String
+		var phone: String
+		var website: String
+	}
+		
+	var userDataArray = [UserData]()
+	
+	override func viewDidLoad() {
 
-			super.viewDidLoad()
+		super.viewDidLoad()
 			
-			loadJSONData()
+		loadJSONData()
 	}
 
 	override func didReceiveMemoryWarning() {
@@ -41,39 +41,35 @@ class ViewController: UIViewController, UITableViewDataSource {
 		
 		// Fake Online REST API for Testing and Prototyping
 		//http://jsonplaceholder.typicode.com/users
-		
+			
 		Alamofire.request(.GET, "http://jsonplaceholder.typicode.com/users", parameters: nil).responseString { response in
 
-		// The GET request for the JSON data has returned.
 			
-		//print(response.request)  // original URL request
-		//print(response.response) // URL response
-		//print(response.data)     // server data
-		//print(response.result)   // result of response serialization
-		if let jsonString = response.result.value {
+			if let jsonString = response.result.value {
 			
-			let json = JSON.parse(jsonString)
+				let json = JSON.parse(jsonString)
 			
-			for arrayEntry in json.arrayValue {
+				for arrayEntry in json.arrayValue {
 				
-				let name = arrayEntry["name"].stringValue
-				let phone = arrayEntry["phone"].stringValue
-				let email = arrayEntry["email"].stringValue
-				let website = arrayEntry["website"].stringValue
+					let name = arrayEntry["name"].stringValue
+					let phone = arrayEntry["phone"].stringValue
+					let email = arrayEntry["email"].stringValue
+					let website = arrayEntry["website"].stringValue
 				
-				self.userDataArray.append(UserData(name: name, email: email, phone: phone, website: website))
-			}
+					self.userDataArray.append(UserData(name: name, email: email, phone: phone, website: website))
+				}
 			
 			// Once we're done loading up the photoDataArray, force the table view to reload so
 			// the cells get rebuilt using the data that we fetched from the test server.
-			self.tableView.reloadData()
+						
+				self.tableView.reloadData()
 			
-		} else {
+				} else {
 			
-			print("Failed to get a value from the response.")
+					print("Failed to get a value from the response.")
+				}
 			}
 		}
-	}
 	
 	// From UITableViewDataSource protocol.
 	func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -93,32 +89,7 @@ class ViewController: UIViewController, UITableViewDataSource {
 		cell.myPhoneText.text = userDataArray[row].phone
 		cell.myWebsiteText.text = userDataArray[row].website
 
-//
-//		cell.myImageView.image = nil
-//		cell.activityIndicator.hidden = false
-//		cell.activityIndicator.startAnimating()
-		
-//		let name = userDataArray[row].name
-//		let phone = userDataArray[row].phone
-//		let email = userDataArray[row].email
-//		let website = userDataArray[row].website
-////
-//		Alamofire.request(.GET, name).response { (request, response, data, error) in
-//			
-//			if error == nil {
-//				
-//				// We got the image data! Use it to create a UIImage for our cell's
-//				// UIImageView. Then, stop the activity spinner.
-//				cell.myImageView.image = UIImage(data: data!)
-//				cell.activityIndicator.stopAnimating()
-//				
-//			} else {
-//				print("Failed to load image from URL \(request) with error \(error)")
-//			}
-			return cell
-		}
-	
-
-	
+		return cell
+	}
 }
 
