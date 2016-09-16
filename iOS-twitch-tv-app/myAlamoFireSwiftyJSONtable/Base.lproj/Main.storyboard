@@ -36,14 +36,23 @@
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tU2-PA-mp5" userLabel="myEmailBtn">
                                                     <rect key="frame" x="95" y="13" width="81" height="30"/>
                                                     <state key="normal" title="myEmailBtn"/>
+                                                    <connections>
+                                                        <action selector="createEmail:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7xf-yW-nag"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="646-8i-R1S" userLabel="myWebsiteBtn">
                                                     <rect key="frame" x="243" y="13" width="99" height="30"/>
                                                     <state key="normal" title="myWebsiteBtn"/>
+                                                    <connections>
+                                                        <action selector="gotoWebsite:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CdH-bX-oxE"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nFG-9B-Xt2" userLabel="myPhoneBtn">
                                                     <rect key="frame" x="248" y="-6" width="88" height="30"/>
                                                     <state key="normal" title="myPhoneBtn"/>
+                                                    <connections>
+                                                        <action selector="callPhoneNumber:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Pmq-V6-GQF"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </tableViewCellContentView>

@@ -65,18 +65,52 @@ class ViewController: UIViewController {
 						
 				self.tableView.reloadData()
 			
-				} else {
+			} else {
 			
 					print("Failed to get a value from the response.")
-				}
 			}
 		}
+	}
 	
+	// MARK: - Actions
+	
+	@IBAction func callPhoneNumber(sender: UIButton) {
+		
+		if let url = NSURL(string: self.userDataArray[2].phone) {
+			
+			let alertController = UIAlertController(title: "Place Call",
+			                                        message: "Do you wish to call \(self.userDataArray[2].phone)?",
+			                                        preferredStyle: .Alert)
+			
+			alertController.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+			
+			let callAction = UIAlertAction(title: "Call", style: .Default) { action in
+				
+				UIApplication.sharedApplication().openURL(url)
+			}
+			
+			alertController.addAction(callAction)
+			
+			self.presentViewController(alertController, animated: true, completion: nil)
+			
+		} else {
+			print("Failed to convert phone number to NSURL")
+		}
+	}
+	
+	@IBAction func gotoWebsite(sender: UIButton) {
+		
+		if let url = NSURL(string: "https://guildsa.org") {
+			
+			UIApplication.sharedApplication().openURL(url)
+		}
+	}
 }
 
 // MARK: - UITableViewDataSource
 
 extension ViewController: UITableViewDataSource {
+	
 	// From UITableViewDataSource protocol.
 	func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		
@@ -103,5 +137,45 @@ extension ViewController: UITableViewDataSource {
 // MARK: - MFMailComposeViewControllerDelegate
 
 extension ViewController: MFMailComposeViewControllerDelegate {
+	
+	@IBAction func createEmail(sender: UIButton) {
+		
+		if MFMailComposeViewController.canSendMail() {
+			
+			let mailComposerVC = MFMailComposeViewController()
+			mailComposerVC.mailComposeDelegate = self
+			mailComposerVC.setToRecipients(["mnetherwood@gmail.com"])
+			mailComposerVC.setSubject("My Subject...")
+			mailComposerVC.setMessageBody("Hello, I wanted to reach out to you about...", isHTML: false)
+			
+			self.presentViewController(mailComposerVC, animated: true, completion: nil)
+			
+		} else {
+			
+			let alertController = UIAlertController(title: "Could Not Send Email",
+			                                        message: "Your device is not configured to send e-mail. Please check e-mail configuration and try again.",
+			                                        preferredStyle: .Alert)
+			
+			alertController.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+			
+			let configureAction = UIAlertAction(title: "Configure", style: .Default) { action in
+				
+				// Send the user to the device's Settings app.
+				if let appSettings = NSURL(string: UIApplicationOpenSettingsURLString) {
+					UIApplication.sharedApplication().openURL(appSettings)
+				}
+			}
+			
+			alertController.addAction(configureAction)
+			
+			self.presentViewController(alertController, animated: true, completion: nil)
+		}
+	}
+	
+	// Implemented from MFMailComposeViewControllerDelegate...
+	func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
+		
+		controller.dismissViewControllerAnimated(true, completion: nil)
+	}
 }
 
