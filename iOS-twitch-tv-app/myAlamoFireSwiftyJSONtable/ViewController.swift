@@ -9,8 +9,9 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import MessageUI
 
-class ViewController: UIViewController, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDataSource, MFMailComposeViewControllerDelegate {
 		
 	@IBOutlet weak var tableView: UITableView!
 	
@@ -84,10 +85,11 @@ class ViewController: UIViewController, UITableViewDataSource {
 		
 		let row = indexPath.row
 		
-		cell.myNameText.text = userDataArray[row].name
-		cell.myEmailText.text = userDataArray[row].email
-		cell.myPhoneText.text = userDataArray[row].phone
-		cell.myWebsiteText.text = userDataArray[row].website
+		cell.myNameBtn.setTitle(userDataArray[row].name, forState: [])
+//		= userDataArray[row].name
+//		cell.myEmailBtn.text = userDataArray[row].email
+//		cell.myPhoneBtn.text = userDataArray[row].phone
+//		cell.myWebsiteBtn.text = userDataArray[row].website
 
 		return cell
 	}

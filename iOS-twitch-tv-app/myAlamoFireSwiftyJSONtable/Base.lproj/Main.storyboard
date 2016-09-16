@@ -29,47 +29,29 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="47"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="myNameText" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fxS-Fy-Hcx">
-                                                    <rect key="frame" x="15" y="0.0" width="89" height="18"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="myNameText" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gjU-sy-BP3" userLabel="myEmailText">
-                                                    <rect key="frame" x="317" y="19" width="89" height="18"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="myNameText" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="19A-gP-lV6" userLabel="myWebsiteText">
-                                                    <rect key="frame" x="15" y="19" width="89" height="18"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="myNameText" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GsN-aH-Ino" userLabel="myPhoneText">
-                                                    <rect key="frame" x="317" y="0.0" width="89" height="18"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SfN-lf-aEF" userLabel="myNameBtn">
+                                                    <rect key="frame" x="93" y="-6" width="84" height="30"/>
+                                                    <state key="normal" title="myNameBtn"/>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tU2-PA-mp5" userLabel="myEmailBtn">
+                                                    <rect key="frame" x="95" y="13" width="81" height="30"/>
+                                                    <state key="normal" title="myEmailBtn"/>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="646-8i-R1S" userLabel="myWebsiteBtn">
+                                                    <rect key="frame" x="243" y="13" width="99" height="30"/>
+                                                    <state key="normal" title="myWebsiteBtn"/>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nFG-9B-Xt2" userLabel="myPhoneBtn">
+                                                    <rect key="frame" x="248" y="-6" width="88" height="30"/>
+                                                    <state key="normal" title="myPhoneBtn"/>
+                                                </button>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstItem="GsN-aH-Ino" firstAttribute="top" secondItem="uhC-iK-yQL" secondAttribute="topMargin" constant="-8" id="AYZ-wb-dq1"/>
-                                                <constraint firstItem="gjU-sy-BP3" firstAttribute="top" secondItem="GsN-aH-Ino" secondAttribute="bottom" constant="1" id="Ca4-Lf-NtS"/>
-                                                <constraint firstItem="19A-gP-lV6" firstAttribute="leading" secondItem="uhC-iK-yQL" secondAttribute="leadingMargin" constant="7" id="ITZ-71-izx"/>
-                                                <constraint firstItem="19A-gP-lV6" firstAttribute="top" secondItem="fxS-Fy-Hcx" secondAttribute="bottom" constant="1" id="ePV-OA-tnX"/>
-                                                <constraint firstItem="fxS-Fy-Hcx" firstAttribute="leading" secondItem="uhC-iK-yQL" secondAttribute="leadingMargin" constant="7" id="gec-Cm-Z3I"/>
-                                                <constraint firstItem="gjU-sy-BP3" firstAttribute="trailing" secondItem="uhC-iK-yQL" secondAttribute="trailingMargin" id="kqk-Ws-4lo"/>
-                                                <constraint firstItem="GsN-aH-Ino" firstAttribute="trailing" secondItem="uhC-iK-yQL" secondAttribute="trailingMargin" id="rBH-0Y-gGJ"/>
-                                                <constraint firstItem="fxS-Fy-Hcx" firstAttribute="top" secondItem="uhC-iK-yQL" secondAttribute="topMargin" constant="-8" id="tbe-dM-LIN"/>
-                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="myEmailText" destination="gjU-sy-BP3" id="yc4-2d-edK"/>
-                                            <outlet property="myNameText" destination="fxS-Fy-Hcx" id="fhN-2y-CdH"/>
-                                            <outlet property="myPhoneText" destination="GsN-aH-Ino" id="Son-9v-OQ1"/>
-                                            <outlet property="myWebsiteText" destination="19A-gP-lV6" id="TKQ-rL-5kP"/>
+                                            <outlet property="myEmailBtn" destination="tU2-PA-mp5" id="cjV-iC-92v"/>
+                                            <outlet property="myNameBtn" destination="SfN-lf-aEF" id="JWz-mf-5Na"/>
+                                            <outlet property="myPhoneBtn" destination="nFG-9B-Xt2" id="Ud6-oe-P3w"/>
+                                            <outlet property="myWebsiteBtn" destination="646-8i-R1S" id="M1L-jV-3Vm"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

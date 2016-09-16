@@ -11,10 +11,10 @@ import UIKit
 
 class MyTableViewCell: UITableViewCell {
 	
-	@IBOutlet weak var myNameText: UILabel!
-	@IBOutlet weak var myPhoneText: UILabel!
-	@IBOutlet weak var myEmailText: UILabel!
-	@IBOutlet weak var myWebsiteText: UILabel!
+	@IBOutlet weak var myNameBtn: UIButton!
+	@IBOutlet weak var myPhoneBtn: UIButton!
+	@IBOutlet weak var myEmailBtn: UIButton!
+	@IBOutlet weak var myWebsiteBtn: UIButton!
 	
 	override func awakeFromNib() {
 		super.awakeFromNib()
