@@ -11,7 +11,7 @@ import Alamofire
 import SwiftyJSON
 import MessageUI
 
-class ViewController: UIViewController, UITableViewDataSource, MFMailComposeViewControllerDelegate {
+class ViewController: UIViewController {
 		
 	@IBOutlet weak var tableView: UITableView!
 	
@@ -72,6 +72,11 @@ class ViewController: UIViewController, UITableViewDataSource, MFMailComposeView
 			}
 		}
 	
+}
+
+// MARK: - UITableViewDataSource
+
+extension ViewController: UITableViewDataSource {
 	// From UITableViewDataSource protocol.
 	func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		
@@ -86,12 +91,17 @@ class ViewController: UIViewController, UITableViewDataSource, MFMailComposeView
 		let row = indexPath.row
 		
 		cell.myNameBtn.setTitle(userDataArray[row].name, forState: [])
-//		= userDataArray[row].name
-//		cell.myEmailBtn.text = userDataArray[row].email
-//		cell.myPhoneBtn.text = userDataArray[row].phone
-//		cell.myWebsiteBtn.text = userDataArray[row].website
-
+		cell.myPhoneBtn.setTitle(userDataArray[row].phone, forState: [])
+		cell.myEmailBtn.setTitle(userDataArray[row].email, forState: [])
+		cell.myWebsiteBtn.setTitle(userDataArray[row].website, forState: [])
+		
 		return cell
 	}
+
+}
+
+// MARK: - MFMailComposeViewControllerDelegate
+
+extension ViewController: MFMailComposeViewControllerDelegate {
 }
 
