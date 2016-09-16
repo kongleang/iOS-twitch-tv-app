@@ -76,25 +76,28 @@ class ViewController: UIViewController {
 	
 	@IBAction func callPhoneNumber(sender: UIButton) {
 		
-		if let url = NSURL(string: self.userDataArray[2].phone) {
-			
-			let alertController = UIAlertController(title: "Place Call",
-			                                        message: "Do you wish to call \(self.userDataArray[2].phone)?",
-			                                        preferredStyle: .Alert)
-			
-			alertController.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
-			
-			let callAction = UIAlertAction(title: "Call", style: .Default) { action in
+		for i in userDataArray {
+		
+			if let url = NSURL(string: i.phone) {
 				
-				UIApplication.sharedApplication().openURL(url)
+				let alertController = UIAlertController(title: "Place Call",
+														message: "Do you wish to call \(i.phone)?",
+														preferredStyle: .Alert)
+				
+				alertController.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+				
+				let callAction = UIAlertAction(title: "Call", style: .Default) { action in
+					
+					UIApplication.sharedApplication().openURL(url)
+				}
+				
+				alertController.addAction(callAction)
+				
+				self.presentViewController(alertController, animated: true, completion: nil)
+				
+			} else {
+				print("Failed to convert phone number to NSURL")
 			}
-			
-			alertController.addAction(callAction)
-			
-			self.presentViewController(alertController, animated: true, completion: nil)
-			
-		} else {
-			print("Failed to convert phone number to NSURL")
 		}
 	}
 	
